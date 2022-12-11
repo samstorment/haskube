@@ -35,65 +35,65 @@ Basic explanation of cube scramble strings, what moves are available, and what m
 
 ### Currently Supported Moves
 
-* Single turn clockwise moves
+Single turn clockwise moves
 
-(F)ront 
-(R)ight 
-(U)p 
-(D)own 
-(L)eft 
-(B)ack
+* (F)ront 
+* (R)ight 
+* (U)p 
+* (D)own 
+* (L)eft 
+* (B)ack
 
-* Double turn moves
+Double turn moves
 
-F2
-R2
-U2
-D2
-L2
-B2
+* F2
+* R2
+* U2
+* D2
+* L2
+* B2
 
-* Single turn counterclockwise moves
+Single turn counterclockwise moves
 
-F'
-R'
-U'
-D'
-L'
-B'
+* F'
+* R'
+* U'
+* D'
+* L'
+* B'
 
-* Cube rotations
+Cube rotations
 
-x
-x'
-x2
-y
-y'
-y2
+* x
+* x'
+* x2
+* y
+* y'
+* y2
 
 
 ### Currently Unsupported Moves
 
-* Cube rotations
+Cube rotations
 
-z
-z'
-z2
+* z
+* z'
+* z2
 
-* Slice Moves
+Slice Moves
 
-M
-E
-S
-M'
-E'
-S'
+* M
+* E
+* S
+* M'
+* E'
+* S'
 
-* Double Layer Moves (And their double turn and counterclockwise variants)
+Double Layer Moves (And their double turn and counterclockwise variants)
 
-f
-r
-u
-d
-l
-b
+* f
+* r
+* u
+* d
+* l
+* b
