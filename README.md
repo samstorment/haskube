@@ -14,13 +14,13 @@ ghci Main.hs
 
 The cube is made up of an array of 6 faces. Those faces are green, red, white, yellow, orange, blue in that order. Running `cube` in ghci will print the default solved cube state shown below:
 
-```
+```bash
 [["ggg","ggg","ggg"],["rrr","rrr","rrr"],["www","www","www"],["yyy","yyy","yyy"],["ooo","ooo","ooo"],["bbb","bbb","bbb"]]
 ```
 
 You can scramble the cube by calling the `scramble` function and giving it a string that represents a Rubik's Cube scramble as well as the cube you'd like to scramble. 
 
-```
+```bash
 # scramble the default solved cube state
 scramble "R L U D F B R' L' U' D' F' B' R2 L2 U2 D2 F2 B2" cube
 
