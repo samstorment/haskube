@@ -63,6 +63,7 @@ y2 = y . y
 
 x cube = [down cube, rotate (right cube), front cube, rotate2 (back cube), rotate' (left cube), rotate2 (up cube)]
 x' = x . x . x
+x2 = x . x
 
 -- rotates the colors of a face clockwise, but only the FACE, not the up, right, left, bottom of the face
 rotate face = map reverse (transpose face)
@@ -70,6 +71,9 @@ rotate' = rotate . rotate . rotate
 rotate2 = rotate . rotate 
 
 -- generates faces of the cube AFTER a front rotation. Thats why thhe naming here goes: <Face-direction After Front-move>, so something like raf means "right after front"
+-- there is no `baf` for back after front because the Back face is not affected by a Front move
+-- there are no `far` (front after right) or `lau` (left after up) because we use a combination of F moves and x and y rotations to generate every other move
+-- this approach is less efficient but was fun to implement and is significantly less code than manually transforming the cube for each move type
 faf cube = rotate (front cube)
 raf cube = replaceFirstInList (last (up cube)) (right cube)
 uaf cube = init (up cube) ++ [reverse (map last (left cube))]
@@ -106,5 +110,13 @@ moves = Map.fromList [
     ("u2", u2),
     ("d2", d2),
     ("l2", l2),
-    ("b2", b2)
+    ("b2", b2),
+
+    ("x",  x),
+    ("x'", x),
+    ("x2", x),
+
+    ("y",  y),
+    ("y'", y),
+    ("y2", y)
     ]
