@@ -25,7 +25,7 @@ scrambleFunc alg cube = foldl (\cube move -> move cube) cube alg
 stringToAlg algStr = map (\move -> fromMaybe id (Map.lookup move moves)) (words algStr)
 
 -- scrambles the cube by using the passed in algorithm string. that string takes the form "f r u r' u' f'". can also be upper case
-scramble algStr = scrambleFunc (stringToAlg (map toLower algStr))
+scramble algStr = scrambleFunc (stringToAlg algStr)
 
 -- 6 functions below return the cube face for each side
 front = head
@@ -35,7 +35,7 @@ down cube = cube !! 3
 left cube = cube !! 4
 back = last
 
--- all the turns below
+-- Face rotations
 f cube = [faf cube, raf cube, uaf cube, daf cube, laf cube, back cube]
 r = y' . f . y
 u = x . f . x'
@@ -57,6 +57,7 @@ d2 = x' . f2 . x
 l2 = y . f2 . y'
 b2 = y2 . f2 . y2
 
+-- Cube rotations
 y cube = [right cube, back cube, rotate (up cube), rotate' (down cube), front cube, left cube]
 y' = y . y . y
 y2 = y . y
@@ -64,6 +65,45 @@ y2 = y . y
 x cube = [down cube, rotate (right cube), front cube, rotate2 (back cube), rotate' (left cube), rotate2 (up cube)]
 x' = x . x . x
 x2 = x . x
+
+z = y . x . y'
+z' = z . z . z
+z2 = z . z
+
+-- Slices
+m = l' . r . x'
+m' = m . m . m
+m2 = m . m
+
+e = u . d' . y'
+e' = e . e . e
+e2 = e . e
+
+s = b . f' . z
+s' = s . s . s
+s2 = s . s
+
+-- Wide Turns
+fw = f . s
+rw = r . m'
+uw = u . e'
+dw = d . e
+lw = l . m
+bw = b . s'
+
+fw' = fw . fw . fw
+rw' = rw . rw . rw
+uw' = uw . uw . uw
+dw' = dw . dw . dw
+lw' = lw . lw . lw
+bw' = bw . bw . bw
+
+fw2 = fw . fw
+rw2 = rw . rw
+uw2 = uw . uw
+dw2 = dw . dw
+lw2 = lw . lw
+bw2 = bw . bw
 
 -- rotates the colors of a face clockwise, but only the FACE, not the up, right, left, bottom of the face
 rotate face = map reverse (transpose face)
@@ -91,32 +131,73 @@ replaceLastInList [] xs = xs
 replaceLastInList (s:tr) (x:xs) = (init x ++ [s]) : replaceLastInList tr xs
 
 moves = Map.fromList [
-    ("f", f),
-    ("r", r),
-    ("u", u),
-    ("d", d),
-    ("l", l),
-    ("b", b),
+    -- face rotations
+    ("F", f),
+    ("R", r),
+    ("U", u),
+    ("D", d),
+    ("L", l),
+    ("B", b),
     
-    ("f'", f'),
-    ("r'", r'),
-    ("u'", u'),
-    ("d'", d'),
-    ("l'", l'),
-    ("b'", b'),
+    ("F'", f'),
+    ("R'", r'),
+    ("U'", u'),
+    ("D'", d'),
+    ("L'", l'),
+    ("B'", b'),
 
-    ("f2", f2),
-    ("r2", r2),
-    ("u2", u2),
-    ("d2", d2),
-    ("l2", l2),
-    ("b2", b2),
+    ("F2", f2),
+    ("R2", r2),
+    ("U2", u2),
+    ("D2", d2),
+    ("L2", l2),
+    ("B2", b2),
 
+    -- cube rotation
     ("x",  x),
-    ("x'", x),
-    ("x2", x),
+    ("x'", x'),
+    ("x2", x2),
 
     ("y",  y),
-    ("y'", y),
-    ("y2", y)
+    ("y'", y'),
+    ("y2", y2),
+
+    ("z",  z),
+    ("z'", z'),
+    ("z2", z2),
+
+    -- slices
+    ("M",  m),
+    ("M'", m'),
+    ("M2", m2),
+
+    ("E",  e),
+    ("E'", e'),
+    ("E2", e2),
+
+    ("S",  s),
+    ("S'", s'),
+    ("S2", s2),
+
+    -- wide
+    ("f", fw),
+    ("r", rw),
+    ("u", uw),
+    ("d", dw),
+    ("l", lw),
+    ("b", bw),
+    
+    ("f'", fw'),
+    ("r'", rw'),
+    ("u'", uw'),
+    ("d'", dw'),
+    ("l'", lw'),
+    ("b'", bw'),
+
+    ("f2", fw2),
+    ("r2", rw2),
+    ("u2", uw2),
+    ("d2", dw2),
+    ("l2", lw2),
+    ("b2", bw2)
     ]

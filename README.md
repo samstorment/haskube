@@ -10,24 +10,28 @@ Project assumes glasgow haskell compiler is installed. Download reccomendations 
 ghci Main.hs
 ```
 
-## Info
+## How to Use
 
 The cube is made up of an array of 6 faces. Those faces are green, red, white, yellow, orange, blue in that order. Running `cube` in ghci will print the default solved cube state shown below:
 
-```bash
+```haskell
 [["ggg","ggg","ggg"],["rrr","rrr","rrr"],["www","www","www"],["yyy","yyy","yyy"],["ooo","ooo","ooo"],["bbb","bbb","bbb"]]
 ```
 
 You can scramble the cube by calling the `scramble` function and giving it a string that represents a Rubik's Cube scramble as well as the cube you'd like to scramble. 
 
-```bash
-# scramble the default solved cube state
+```haskell
+-- scramble the default solved cube state
 scramble "R L U D F B R' L' U' D' F' B' R2 L2 U2 D2 F2 B2" cube
 
-# assign a scramble to a variable, then scramble again 
+-- assign a scramble to a variable, then scramble again 
 myScrambledCube = scramble "F R U R' U' F'" cube
 scramble "F U R U' R' F'" myScrambledCube
 ```
+
+## How turns are represented in code
+
+Every turn is built off of the `f`, `x`, and `y` functions. On a real rubik's cube a right turn is identical to doing a clockwise y rotation, a single clockwise front turn, then a counterclockwise y rotation. We model this exactly the same in our code using function composition. It's important to remember that the right most functions are called first in a function composition chain, so if we wanted to do the scramble `F R U R' U' F'`, we'd represent that as `f' u' r' u r f` in our code.
 
 ## Cube notation
 
