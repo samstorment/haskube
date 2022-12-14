@@ -12,9 +12,10 @@ ghci Main.hs
 
 ## How to Use
 
-The cube is made up of an array of 6 faces. Those faces are green, red, white, yellow, orange, blue in that order. Running `cube` in ghci will print the default solved cube state shown below:
+The cube is made up of an array of 6 faces. Those faces are green, red, white, yellow, orange, blue which represents the Front, Right, Up, Down, Left, and Back faces respectively. Running `cube` in ghci will print the default solved cube state shown below:
 
 ```haskell
+----------F-------------------R-------------------U-------------------D-------------------L-------------------B----------
 [["ggg","ggg","ggg"],["rrr","rrr","rrr"],["www","www","www"],["yyy","yyy","yyy"],["ooo","ooo","ooo"],["bbb","bbb","bbb"]]
 ```
 
