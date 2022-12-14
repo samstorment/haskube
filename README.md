@@ -38,67 +38,79 @@ Every turn is built off of the `f`, `x`, and `y` functions. On a real rubik's cu
 
 Basic explanation of cube scramble strings, what moves are available, and what moves are currently missing.
 
-### Currently Supported Moves
+### Single Face moves
 
-Single turn clockwise moves
-
-* (F)ront 
-* (R)ight 
-* (U)p 
-* (D)own 
-* (L)eft 
-* (B)ack
-
-Double turn moves
-
-* F2
-* R2
-* U2
-* D2
-* L2
-* B2
-
-Single turn counterclockwise moves
-
-* F'
-* R'
-* U'
-* D'
-* L'
-* B'
-
-Cube rotations
-
-* x
-* x'
-* x2
-* y
-* y'
-* y2
+| Move Name | Description                          |
+|-----------|-------------------------------       |
+| F         | Front clockwise 90 degrees           |
+| R         | Right clockwise 90 degrees           |
+| U         | Up clockwise 90 degrees              |
+| D         | Down clockwise 90 degrees            |
+| L         | Left clockwise 90 degrees            |
+| B         | Back clockwise 90 degrees            |
+| F'        | Front counterclockwise 90 degrees    |
+| R'        | Right counterclockwise 90 degrees    |
+| U'        | Up counterclockwise 90 degrees       |
+| D'        | Down counterclockwise 90 degrees     |
+| L'        | Left counterclockwise 90 degrees     |
+| B'        | Back counterclockwise 90 degrees     |
+| F2        | Front 180 degrees                    |
+| R2        | Right 180 degrees                    |
+| U2        | Up 180 degrees                       |
+| D2        | Down 180 degrees                     |
+| L2        | Left 180 degrees                     |
+| B2        | Back 180 degrees                     |
 
 
-### Currently Unsupported Moves
+### Full Cube rotations
 
-Cube rotations
+| Move Name | Description                   |
+|-----------|-------------------------------|
+| x         | Rotate cube clockwise 90 degrees in R direction                                      |
+| y         | Rotate cube clockwise 90 degrees in U direction                                      |
+| z         | Rotate cube clockwise 90 degrees in F direction                                      |
+| x'        | Rotate cube counterclockwise 90 degrees in R direction                               |
+| y'        | Rotate cube counterclockwise 90 degrees in U direction                               |
+| z'        | Rotate cube counterclockwise 90 degrees in F direction                               |
+| x2        | Rotate cube 180 degrees in R direction                                               |
+| y2        | Rotate cube 180 degrees in U direction                                               |
+| z2        | Rotate cube 180 degrees in F direction                                               |
 
-* z
-* z'
-* z2
 
-Slice Moves
+### Slice Moves
 
-* M
-* E
-* S
-* M'
-* E'
-* S'
+| Move Name | Description                   |
+|-----------|-------------------------------|
+| M         | Rotate middle layer between L and R clockwise 90 degrees in L direction |
+| E         | Rotate middle layer between U and D clockwise 90 degrees in D direction |
+| S         | Rotate middle layer between F and B clockwise 90 degrees in F direction |
+| M'        | Rotate middle layer between L and R counterclockwise 90 degrees in L direction |
+| E'        | Rotate middle layer between U and D counterclockwise 90 degrees in D direction |
+| S'        | Rotate middle layer between F and B counterclockwise 90 degrees in F direction |
+| M2        | Rotate middle layer between L and R 180 degrees in L direction |
+| E2        | Rotate middle layer between U and D 180 degrees in D direction |
+| S2        | Rotate middle layer between F and B 180 degrees in F direction |
 
-Double Layer Moves (And their double turn and counterclockwise variants)
 
-* f
-* r
-* u
-* d
-* l
-* b
+### Wide Moves (two layers at once)
+
+| Move Name | Description                                     |
+|-----------|-------------------------------                  |
+| f         | Front two layers clockwise 90 degrees           |
+| r         | Right two layers clockwise 90 degrees           |
+| u         | Top two layers clockwise 90 degrees             |
+| d         | Bottom two layers clockwise 90 degrees          |
+| l         | Left two layers clockwise 90 degrees            |
+| b         | Back two layers clockwise 90 degrees            |
+| f'        | Front two layers counterclockwise 90 degrees    |
+| r'        | Right two layers counterclockwise 90 degrees    |
+| u'        | Top two layers counterclockwise 90 degrees      |
+| d'        | Bottom two layers counterclockwise 90 degrees   |
+| l'        | Left two layers counterclockwise 90 degrees     |
+| b'        | Back two layers counterclockwise 90 degrees     |
+| f2        | Front two layers 180 degrees                    |
+| r2        | Right two layers 180 degrees                    |
+| u2        | Top two layers 180 degrees                      |
+| d2        | Bottom two layers 180 degrees                   |
+| l2        | Left two layers 180 degrees                     |
+| b2        | Back two layers 180 degrees                     |
